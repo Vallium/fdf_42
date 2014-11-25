@@ -6,36 +6,19 @@
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/25 15:34:24 by aalliot           #+#    #+#             */
-/*   Updated: 2014/11/25 17:22:59 by aalliot          ###   ########.fr       */
+/*   Updated: 2014/11/25 19:41:26 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "fdf.h"
 #include <unistd.h>
 #include <mlx.h>
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef struct		s_env
-{
-	void			*mlx;
-	void			*win;
-}					t_env;
-
-typedef struct		s_2d
-{
-	int				x;
-	int				y;
-}					t_2d;
-
-typedef struct		s_pt_mouse
-{
-	int				x;
-	int				y;
-}					t_pt_mouse;
-
 void				draw(void *mlx, void *win)
 {
-	t_2d			pt;
+	t_3d			pt;
 
 	pt.y = 100;
 	while (pt.y++ <= 200)
