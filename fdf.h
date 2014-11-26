@@ -6,7 +6,7 @@
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/25 17:46:38 by aalliot           #+#    #+#             */
-/*   Updated: 2014/11/25 19:41:33 by aalliot          ###   ########.fr       */
+/*   Updated: 2014/11/26 12:43:08 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define FDF_H
 
 # include "libft/libft.h"
+# include <math.h>
 
 typedef struct		s_env
 {
@@ -22,12 +23,11 @@ typedef struct		s_env
 	void			*win;
 }					t_env;
 
-typedef struct		s_3d
+typedef struct		s_pt
 {
 	int				x;
 	int				y;
-	int				z;
-}					t_3d;
+}					t_pt;
 
 typedef struct		s_pt_mouse
 {
