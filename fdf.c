@@ -6,7 +6,7 @@
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/25 15:34:24 by aalliot           #+#    #+#             */
-/*   Updated: 2014/11/26 14:12:11 by aalliot          ###   ########.fr       */
+/*   Updated: 2014/11/26 17:41:31 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,15 @@ void				pixel_put(t_env env, t_pt pt)
 {
 	mlx_pixel_put(env.mlx, env.win, pt.x, pt.y, 0xDD985C);
 }
+
+int					key_hook(int keycode, t_env *e)
+{
+	if (keycode == 65307)
+		exit(0);
+	return (0);
+}
+
+void				tab
 
 void				draw_lign(t_env env, t_pt pti, t_pt ptf)
 {
@@ -78,10 +87,12 @@ int					main(int ac, char **av)
 
 	e.mlx = mlx_init();
 	e.win = mlx_new_window(e.mlx, 420, 420, "42");
+	mlx_key_hook(e.win, key_hook, &e);
 	pti.x = 110;
-	pti.y = 110;
+	pti.y = 75;
 	ptf.x = 10;
-	ptf.y = 10;
+	ptf.y = 85;
 	draw_lign(e, pti, ptf);
+	mlx_loop(e.mlx);
 	return (0);
 }
