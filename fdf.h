@@ -6,7 +6,7 @@
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/25 17:46:38 by aalliot           #+#    #+#             */
-/*   Updated: 2014/11/28 15:21:26 by aalliot          ###   ########.fr       */
+/*   Updated: 2014/11/28 16:28:00 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ typedef struct			s_3dpos
 	int					x;
 	int					y;
 	int					z;
-	struct s_3dpos		*next;
 }						t_3dpos;
 
 #endif
