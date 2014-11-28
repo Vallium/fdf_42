@@ -6,7 +6,7 @@
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/25 15:34:24 by aalliot           #+#    #+#             */
-/*   Updated: 2014/11/26 18:17:38 by aalliot          ###   ########.fr       */
+/*   Updated: 2014/11/27 10:17:24 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int					key_hook(int keycode, t_env *e)
 	return (0);
 }
 
-void				tab
+void				print_tab(t_env env);
 
 void				draw_lign(t_env env, t_pt pti, t_pt ptf)
 {
