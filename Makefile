@@ -6,7 +6,7 @@
 #    By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/25 15:39:00 by aalliot           #+#    #+#              #
-#    Updated: 2014/11/29 16:18:51 by aalliot          ###   ########.fr        #
+#    Updated: 2014/11/29 22:47:05 by aalliot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,13 +22,13 @@ CC		= gcc
 all:
 	@make -C libft/ fclean
 	@make -C libft/
-	@gcc -o $(NAME) main.c libft/libft.a -L/usr/X11/lib -lmlx -lXext -lX11 -I .
+	@gcc -o $(NAME) lib3d.c read_map.c main.c libft/libft.a -L/usr/X11/lib -lmlx -lXext -lX11 -I .
 	@./fdf
 
 debug:
 	@make -C libft/ fclean
 	@make -C libft/
-	@gcc -g -o $(NAME) main.c libft/libft.a -L/usr/X11/lib -lmlx -lXext -lX11 -I .
+	@gcc -g -o $(NAME) lib3d.c read_map.c main.c libft/libft.a -L/usr/X11/lib -lmlx -lXext -lX11 -I .
 	@./fdf
 
 clean:
