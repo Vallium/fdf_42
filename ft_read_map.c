@@ -6,27 +6,14 @@
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/28 15:09:24 by aalliot           #+#    #+#             */
-/*   Updated: 2014/11/29 12:09:20 by aalliot          ###   ########.fr       */
+/*   Updated: 2014/11/29 16:22:15 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "head.h"
 #include <stdio.h>
 
-t_3dpos				ft_read_map()
-{
-	char			**tmp;
-	int				fd;
-	int				x;
-	int				y;
-	int				z;
-	t_3dpos			pt;
-
-	fd = open("42.fdf", O_RDONLY);
-	*tmp = ft_strnew(0);
-	while (get_next_line(fd, tmp))
-	{
-t_3dpos				*fill_tab(t_list *lst, t_3dpos pt)
+t_3dpos				**ft_fill_tab(t_list *lst, t_3dpos pt)
 {
 	t_3dpos			**tab;
 
@@ -40,19 +27,19 @@ t_3dpos				*fill_tab(t_list *lst, t_3dpos pt)
 		tab[pt.x][pt.y] = pt;
 		lst = lst->next;
 	}
-	return (*tab);
+	return (tab);
 }
 
-t_3dpos				ft_read_map(char c)
+t_3dpos				**ft_read_map(char c)
 {
 	char			**tmp;
 	char			**tabx;
 	int				fd;
 	t_3dpos			pt;
+	t_3dpos			**tab;
 	t_list			*lst;
 
 	fd = open("42.fdf", O_RDONLY);
-	*tmp = ft_strnew(0);
 	pt.y = 0;
 	while (get_next_line(fd, tmp))
 	{
@@ -62,9 +49,11 @@ t_3dpos				ft_read_map(char c)
 		{
 			pt.z = ft_atoi(*tabx);
 			ft_lstadd(&lst, ft_lstnew(&pt, sizeof(t_3dpos)));
-			*tabx++;
+			tabx++;
 			pt.x++;
 		}
 		pt.y++;
 	}
+	tab = ft_fill_tab(lst, pt);
+	return (tab);
 }

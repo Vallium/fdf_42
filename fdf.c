@@ -6,7 +6,7 @@
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/25 15:34:24 by aalliot           #+#    #+#             */
-/*   Updated: 2014/11/29 12:28:29 by aalliot          ###   ########.fr       */
+/*   Updated: 2014/11/29 15:33:35 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,6 @@
 void				pixel_put(t_env env, t_pt pt)
 {
 	mlx_pixel_put(env.mlx, env.win, pt.x, pt.y, 0xDD985C);
-}
-
-int					key_hook(int keycode, t_env *e)
-{
-	if (keycode == 65307)
-		exit(0);
-	return (0);
 }
 
 void				print_tab(t_env env);

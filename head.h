@@ -6,7 +6,7 @@
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/25 17:46:38 by aalliot           #+#    #+#             */
-/*   Updated: 2014/11/29 13:43:48 by aalliot          ###   ########.fr       */
+/*   Updated: 2014/11/29 16:06:43 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 # include "libft/includes/get_next_line.h"
 # include <math.h>
+# include <mlx.h>
 
 typedef struct			s_env
 {
@@ -41,5 +42,9 @@ typedef struct			s_3dpos
 	int					y;
 	int					z;
 }						t_3dpos;
+
+int						key_hook(int keycode, t_env *e);
+t_3dpos					**ft_read_map(char c);
+t_3dpos					**ft_fill_tab(t_list *lst, t_3dpos pt);
 
 #endif
