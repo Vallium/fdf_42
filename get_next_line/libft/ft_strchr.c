@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read_map.c                                      :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/28 15:09:24 by aalliot           #+#    #+#             */
-/*   Updated: 2014/11/28 15:51:06 by aalliot          ###   ########.fr       */
+/*   Created: 2014/11/04 17:34:11 by aalliot           #+#    #+#             */
+/*   Updated: 2014/11/17 14:54:41 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-t_3dpos				ft_read_map()
+char		*ft_strchr(const char *s, int c)
 {
-	char			**tmp;
-	int				fd;
-	int				x;
-	int				y;
-	int				z;
-	t_3dpos			pt;
-
-	fd = open("42.fdf", O_RDONLY);
-	*tmp = ft_strnew(0);
-	while (get_next_line(fd, tmp))
+	if (s == NULL)
+		return (NULL);
+	while (*s)
 	{
+		if (*s == c)
+			return ((char *)s);
+		s++;
 	}
+	return (NULL);
 }

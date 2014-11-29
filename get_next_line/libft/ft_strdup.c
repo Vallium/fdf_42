@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read_map.c                                      :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/28 15:09:24 by aalliot           #+#    #+#             */
-/*   Updated: 2014/11/28 15:51:06 by aalliot          ###   ########.fr       */
+/*   Created: 2014/11/04 12:33:04 by aalliot           #+#    #+#             */
+/*   Updated: 2014/11/17 15:20:16 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include <stdlib.h>
+#include "libft.h"
 
-t_3dpos				ft_read_map()
+char		*ft_strdup(const char *s1)
 {
-	char			**tmp;
-	int				fd;
-	int				x;
-	int				y;
-	int				z;
-	t_3dpos			pt;
+	char	*s2;
 
-	fd = open("42.fdf", O_RDONLY);
-	*tmp = ft_strnew(0);
-	while (get_next_line(fd, tmp))
-	{
-	}
+	s2 = (char*)malloc(ft_strlen(s1) * sizeof(char) + sizeof(char));
+	if (!s2)
+		return (NULL);
+	ft_strcpy(s2, s1);
+	return (s2);
 }

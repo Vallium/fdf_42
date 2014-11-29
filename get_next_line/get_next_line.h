@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read_map.c                                      :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aalliot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/28 15:09:24 by aalliot           #+#    #+#             */
-/*   Updated: 2014/11/28 15:51:06 by aalliot          ###   ########.fr       */
+/*   Created: 2014/11/13 12:44:13 by aalliot           #+#    #+#             */
+/*   Updated: 2014/11/28 15:07:12 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#ifndef GET_NEXT_LINE_H
 
-t_3dpos				ft_read_map()
-{
-	char			**tmp;
-	int				fd;
-	int				x;
-	int				y;
-	int				z;
-	t_3dpos			pt;
+# define GET_NEXT_LINE_H
+# define BUFF_SIZE 8
 
-	fd = open("42.fdf", O_RDONLY);
-	*tmp = ft_strnew(0);
-	while (get_next_line(fd, tmp))
-	{
-	}
-}
+# include "libft/includes/libft.h"
+# include <unistd.h>
+# include <fcntl.h>
+# include <stdlib.h>
+
+int			get_next_line(int fd, char **line);
+
+#endif

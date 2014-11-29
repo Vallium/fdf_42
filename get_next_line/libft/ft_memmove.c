@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read_map.c                                      :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/28 15:09:24 by aalliot           #+#    #+#             */
-/*   Updated: 2014/11/28 15:51:06 by aalliot          ###   ########.fr       */
+/*   Created: 2014/11/05 17:29:21 by aalliot           #+#    #+#             */
+/*   Updated: 2014/11/06 10:35:41 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-t_3dpos				ft_read_map()
+void						*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char			**tmp;
-	int				fd;
-	int				x;
-	int				y;
-	int				z;
-	t_3dpos			pt;
+	unsigned char			*strdst;
+	const unsigned char		*strsrc;
 
-	fd = open("42.fdf", O_RDONLY);
-	*tmp = ft_strnew(0);
-	while (get_next_line(fd, tmp))
+	strdst = (unsigned char*)dst;
+	strsrc = (const unsigned char*)src;
+	if (!len)
+		return (dst);
+	if (strsrc < strdst)
 	{
+		strdst += len;
+		strsrc += len;
+		while (len--)
+			*--strdst = *--strsrc;
 	}
+	else
+		while (len--)
+			*strdst++ = *strsrc++;
+	return (dst);
 }

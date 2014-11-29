@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read_map.c                                      :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/28 15:09:24 by aalliot           #+#    #+#             */
-/*   Updated: 2014/11/28 15:51:06 by aalliot          ###   ########.fr       */
+/*   Created: 2014/11/06 10:37:06 by aalliot           #+#    #+#             */
+/*   Updated: 2014/11/06 11:26:27 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-t_3dpos				ft_read_map()
+size_t			ft_strlcat(char *dst, const char *src, size_t size)
 {
-	char			**tmp;
-	int				fd;
-	int				x;
-	int				y;
-	int				z;
-	t_3dpos			pt;
+	size_t		nsv;
+	size_t		buff;
+	size_t		size2;
 
-	fd = open("42.fdf", O_RDONLY);
-	*tmp = ft_strnew(0);
-	while (get_next_line(fd, tmp))
+	nsv = size;
+	size2 = ft_strlen(src);
+	buff = ft_strlen(dst) + size2;
+	while (*dst && size)
 	{
+		dst++;
+		size--;
 	}
+	if (size == 0)
+		return (nsv + size2);
+	while (*src && size-- > 1)
+		*dst++ = *src++;
+	*dst = 0;
+	return (buff);
 }

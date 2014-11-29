@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read_map.c                                      :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/28 15:09:24 by aalliot           #+#    #+#             */
-/*   Updated: 2014/11/28 15:51:06 by aalliot          ###   ########.fr       */
+/*   Created: 2014/11/06 16:51:09 by aalliot           #+#    #+#             */
+/*   Updated: 2014/11/07 13:38:24 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
+#include <stdlib.h>
 
-t_3dpos				ft_read_map()
+char			*ft_strmap(const char *s, char (*f)(char))
 {
-	char			**tmp;
-	int				fd;
-	int				x;
-	int				y;
-	int				z;
-	t_3dpos			pt;
+	char		*ret;
+	char		*str;
 
-	fd = open("42.fdf", O_RDONLY);
-	*tmp = ft_strnew(0);
-	while (get_next_line(fd, tmp))
+	if (s && f)
 	{
+		str = (char*)malloc(sizeof(char) * ft_strlen(s) + 1);
+		if (!str)
+			return (NULL);
+		ret = str;
+		while (*s && f && s)
+		{
+			*str = (*f)(*s);
+			str++;
+			s++;
+		}
+		*str = 0;
+		return (ret);
 	}
+	return (NULL);
 }

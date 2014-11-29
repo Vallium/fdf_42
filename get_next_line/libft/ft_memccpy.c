@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read_map.c                                      :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/28 15:09:24 by aalliot           #+#    #+#             */
-/*   Updated: 2014/11/28 15:51:06 by aalliot          ###   ########.fr       */
+/*   Created: 2014/11/05 16:56:34 by aalliot           #+#    #+#             */
+/*   Updated: 2014/11/05 17:47:43 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-t_3dpos				ft_read_map()
+void				*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	char			**tmp;
-	int				fd;
-	int				x;
-	int				y;
-	int				z;
-	t_3dpos			pt;
+	unsigned char		*strdst;
+	const unsigned char	*strsrc;
+	unsigned char		car;
 
-	fd = open("42.fdf", O_RDONLY);
-	*tmp = ft_strnew(0);
-	while (get_next_line(fd, tmp))
+	strdst = (unsigned char*)dst;
+	strsrc = (const unsigned char*)src;
+	car = (unsigned char)c;
+	while (n--)
 	{
+		if ((*strdst++ = *strsrc++) == car)
+			return (strdst);
 	}
+	return (NULL);
 }

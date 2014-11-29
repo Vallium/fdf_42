@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read_map.c                                      :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/28 15:09:24 by aalliot           #+#    #+#             */
-/*   Updated: 2014/11/28 15:51:06 by aalliot          ###   ########.fr       */
+/*   Created: 2014/11/05 10:48:00 by aalliot           #+#    #+#             */
+/*   Updated: 2014/11/05 14:37:51 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-t_3dpos				ft_read_map()
+int			ft_atoi(const char *str)
 {
-	char			**tmp;
-	int				fd;
-	int				x;
-	int				y;
-	int				z;
-	t_3dpos			pt;
+	int		ret;
+	char	si;
 
-	fd = open("42.fdf", O_RDONLY);
-	*tmp = ft_strnew(0);
-	while (get_next_line(fd, tmp))
+	ret = 0;
+	si = 1;
+	while (*str == ' ' || *str == '\t' || *str == '\r'
+			|| *str == '\v' || *str == '\n' || *str == '\f')
+		str++;
+	if (*str == '-' || *str == '+')
 	{
+		si = (*str == '-' ? -1 : 1);
+		str++;
 	}
+	while (ft_isdigit(*str))
+	{
+		ret = ret * 10 + si * (*str - '0');
+		str++;
+	}
+	return (ret);
 }
