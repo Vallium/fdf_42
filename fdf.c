@@ -6,11 +6,11 @@
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/25 15:34:24 by aalliot           #+#    #+#             */
-/*   Updated: 2014/11/27 10:17:24 by aalliot          ###   ########.fr       */
+/*   Updated: 2014/11/29 12:28:29 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "head.h"
 #include <unistd.h>
 #include <mlx.h>
 #include <stdlib.h>
@@ -79,6 +79,7 @@ void				draw_lign(t_env env, t_pt pti, t_pt ptf)
 	}
 }
 
+/*
 int					main(int ac, char **av)
 {
 	t_env			e;
@@ -96,3 +97,4 @@ int					main(int ac, char **av)
 	mlx_loop(e.mlx);
 	return (0);
 }
+*/

@@ -6,11 +6,11 @@
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/25 15:34:24 by aalliot           #+#    #+#             */
-/*   Updated: 2014/11/26 14:44:54 by aalliot          ###   ########.fr       */
+/*   Updated: 2014/11/29 12:19:12 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "head.h"
 #include <unistd.h>
 #include <mlx.h>
 #include <stdlib.h>
