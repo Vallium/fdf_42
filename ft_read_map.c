@@ -6,18 +6,13 @@
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/28 15:09:24 by aalliot           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2014/11/28 15:51:06 by aalliot          ###   ########.fr       */
-=======
-/*   Updated: 2014/11/28 19:38:19 by aalliot          ###   ########.fr       */
->>>>>>> 88b8666a8d9e241a572014f61946fdc0753bcd6b
+/*   Updated: 2014/11/29 12:09:20 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include <stdio.h>
 
-<<<<<<< HEAD
 t_3dpos				ft_read_map()
 {
 	char			**tmp;
@@ -31,7 +26,6 @@ t_3dpos				ft_read_map()
 	*tmp = ft_strnew(0);
 	while (get_next_line(fd, tmp))
 	{
-=======
 t_3dpos				*fill_tab(t_list *lst, t_3dpos pt)
 {
 	t_3dpos			**tab;
@@ -72,6 +66,5 @@ t_3dpos				ft_read_map(char c)
 			pt.x++;
 		}
 		pt.y++;
->>>>>>> 88b8666a8d9e241a572014f61946fdc0753bcd6b
 	}
 }
