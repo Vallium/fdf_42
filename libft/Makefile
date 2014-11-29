@@ -6,7 +6,7 @@
 #    By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/10 11:30:22 by aalliot           #+#    #+#              #
-#    Updated: 2014/11/14 15:51:46 by aalliot          ###   ########.fr        #
+#    Updated: 2014/11/29 14:42:00 by aalliot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,8 @@ SRC		= ft_toupper.c ft_tolower.c ft_strtrim.c ft_strsub.c ft_strstr.c \
 		  ft_memcmp.c ft_memchr.c ft_memccpy.c ft_memalloc.c ft_isprint.c \
 		  ft_isdigit.c ft_isascii.c ft_isalpha.c ft_isalnum.c ft_bzero.c \
 		  ft_atoi.c ft_strsplit.c ft_itoa.c \
-		  ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c \
-		  ft_lstiter.c
+		  ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c \
+		  get_next_line.c
 OBJ		= $(SRC:.c=.o)
 CC		= gcc
 FLAGS	= -Wall -Wextra -Werror
