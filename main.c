@@ -6,7 +6,7 @@
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/29 12:17:29 by aalliot           #+#    #+#             */
-/*   Updated: 2014/11/30 18:44:25 by aalliot          ###   ########.fr       */
+/*   Updated: 2014/11/30 21:30:07 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void			ft_put_pixel(t_env env, t_pos point, t_color clr)
 
 int				key_hook(int keycode, t_env *e)
 {
-	printf("|%d = %c|\n", keycode, keycode);
+//	printf("|%d = %c|\n", keycode, keycode);
 	if (keycode == 65307)
 		exit (0);
 	return (0);
