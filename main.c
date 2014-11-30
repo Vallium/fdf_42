@@ -41,6 +41,7 @@ void			ft_put_pixel(t_env env, t_pos point, t_color clr)
 
 int				key_hook(int keycode, t_env *e)
 {
+	printf("|%d = %c|\n", keycode, keycode);
 	if (keycode == 65307)
 		exit (0);
 	return (0);

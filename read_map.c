@@ -26,7 +26,6 @@ t_3dpos			**ft_fill_tab(t_list *lst, t_3dpos pt)
 	while (lst)
 	{
 		pt = *((t_3dpos*)lst->content);
-		printf("|%d|x = %d, y = %d, z = %d|\n", n, pt.x, pt.y, pt.z);
 		pt.z = -pt.z;
 		tab[pt.y][pt.x] = pt;
 		lst = lst->next;
@@ -61,6 +60,5 @@ t_all			ft_read_map(int fd, char c)
 	all.tab = ft_fill_tab(lst, pt);
 	all.max.x = pt.x;
 	all.max.y = pt.y;
-	printf("|%d, %d|\n", pt.x, pt.y);
 	return (all);
 }
