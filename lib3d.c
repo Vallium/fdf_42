@@ -6,7 +6,7 @@
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/29 22:34:44 by aalliot           #+#    #+#             */
-/*   Updated: 2014/11/29 22:34:46 by aalliot          ###   ########.fr       */
+/*   Updated: 2014/11/30 18:39:59 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,10 +89,10 @@ void			ft_put_3d_tab(t_env env, t_3dpos **tab, t_color clr, t_pos max)
 	int			y;
 
 	y = 0;
-	while (y + 1 < max.y)
+	while (y < (max.y - 1))
 	{
 		x = 0;
-		while (x + 1 < max.x)
+		while (x < (max.x - 1))
 		{
 			ft_3d_line(env, tab[y][x], tab[y][x + 1], clr);
 			ft_3d_line(env, tab[y][x], tab[y + 1][x], clr);
