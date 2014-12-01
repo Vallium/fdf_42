@@ -35,12 +35,6 @@ typedef struct	s_pos
 	int			y;
 }				t_pos;
 
-typedef struct	s_pt_mouse
-{
-	int			x;
-	int			y;
-}				t_pt_mouse;
-
 typedef struct	s_3dpos
 {
 	int			x;
@@ -71,12 +65,13 @@ typedef struct	s_line
 	int			dy;
 }				t_line;
 
-int				key_hook(int keycode, t_env *e);
+int				key_hook(int keycode);
 int				ft_color_to_int(t_color c);
 void			ft_put_pixel(t_env env, t_pos point, t_color c);
 void			ft_line_put(t_env env, t_pos p1, t_pos p2, t_color clr);
 void			ft_line_put_1(t_env env, t_line line);
 void			ft_line_put_2(t_env env, t_line line);
+void			ft_put_linesub(t_env env, t_3dpos **tab, t_color c, t_pos max);
 void			ft_3d_line(t_env env, t_3dpos dp1, t_3dpos dp2, t_color clr);
 void			ft_put_3d_tab(t_env env, t_3dpos **tab, t_color c, t_pos max);
 t_pos			ft_3d_to_2d(t_3dpos dp1);

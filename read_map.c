@@ -17,7 +17,6 @@ t_3dpos			**ft_fill_tab(t_list *lst, t_3dpos pt)
 {
 	t_3dpos		**tab;
 	int			i;
-	int			n = 1;
 
 	i = 0;
 	tab = (t_3dpos**)malloc(sizeof(t_3dpos*) * pt.y);
@@ -29,7 +28,6 @@ t_3dpos			**ft_fill_tab(t_list *lst, t_3dpos pt)
 		pt.z = -pt.z;
 		tab[pt.y][pt.x] = pt;
 		lst = lst->next;
-		n++;
 	}
 	return (tab);
 }

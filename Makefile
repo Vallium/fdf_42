@@ -6,7 +6,7 @@
 #    By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/25 15:39:00 by aalliot           #+#    #+#              #
-#    Updated: 2014/12/01 17:16:21 by aalliot          ###   ########.fr        #
+#    Updated: 2014/12/01 17:38:24 by aalliot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ all:
 	@echo "\033[36m   \033[33m╩ ╩╚═╝╩═╝╩═╝╚═╝   ╚╝ ╩ ╩╩═╝╩═╝╩╚═╝╩ ╩\033[0m   ";
 	@echo "\033[01m\033[32m\n\xf0\x9f\x91\x8c  COMPILATION DE FDF \xf0\x9f\x91\x8c\n\033[0m"
 	@echo "\033[31mTemps de compilation:"
-	@time make -C libft/ fclean && make -C libft/ && gcc -o $(NAME) \
+	@time make -C libft/ fclean && make -C libft/ && $(CC) $(FLAGS) -o $(NAME)\
 		lib3d.c read_map.c main.c libft/libft.a -L/usr/X11/lib \
 		-lmlx -lXext -lX11 -I .
 	@echo "\033[36m\nTemps d'execution du programme:\n"
@@ -36,7 +36,8 @@ all:
 debug:
 	@make -C libft/ fclean
 	@make -C libft/
-	@gcc -g -o $(NAME) lib3d.c read_map.c main.c libft/libft.a -L/usr/X11/lib -lmlx -lXext -lX11 -I .
+	@$(CC) $(FLAGS) -g -o $(NAME) lib3d.c read_map.c main.c \
+		libft/libft.a -L/usr/X11/lib -lmlx -lXext -lX11 -I .
 	@./fdf
 
 clean:

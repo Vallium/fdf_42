@@ -39,9 +39,8 @@ void			ft_put_pixel(t_env env, t_pos point, t_color clr)
 	mlx_pixel_put(env.mlx, env.win, point.x, point.y, ft_color_to_int(clr));
 }
 
-int				key_hook(int keycode, t_env *e)
+int				key_hook(int keycode)
 {
-//	printf("|%d = %c|\n", keycode, keycode);
 	if (keycode == 65307)
 		exit (0);
 	return (0);
@@ -51,7 +50,7 @@ int				main(void)
 {
 	int			fd;
 	t_env		env;
-	t_color		blue = {255, 255, 0};
+	t_color		blue = {20, 255, 0};
 	t_all		all;
 
 	env.mlx = mlx_init();
