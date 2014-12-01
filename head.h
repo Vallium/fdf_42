@@ -77,6 +77,7 @@ void			ft_put_pixel(t_env env, t_pos point, t_color c);
 void			ft_line_put(t_env env, t_pos p1, t_pos p2, t_color clr);
 void			ft_line_put_1(t_env env, t_line line);
 void			ft_line_put_2(t_env env, t_line line);
+void			ft_3d_line(t_env env, t_3dpos dp1, t_3dpos dp2, t_color clr);
 void			ft_put_3d_tab(t_env env, t_3dpos **tab, t_color c, t_pos max);
 t_pos			ft_3d_to_2d(t_3dpos dp1);
 t_all			ft_read_map(int fd, char c);
