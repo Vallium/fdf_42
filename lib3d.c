@@ -6,7 +6,7 @@
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/29 22:34:44 by aalliot           #+#    #+#             */
-/*   Updated: 2014/12/02 14:16:55 by aalliot          ###   ########.fr       */
+/*   Updated: 2014/12/02 18:05:34 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,12 @@ void			ft_3d_line(t_env env, t_3dpos dp1, t_3dpos dp2, t_color clr)
 	t_pos		p1;
 	t_pos		p2;
 
-	dp1.x = dp1.x * 20 + 800;
-	dp1.y = dp1.y * 20 + 400;
-	dp2.x = dp2.x * 20 + 800;
-	dp2.y = dp2.y * 20 + 400;
-//	dp1.z *= 10;
-//	dp2.z *= 10;
+	dp1.x = dp1.x * 40 + 800;
+	dp1.y = dp1.y * 40 + 400;
+	dp2.x = dp2.x * 40 + 800;
+	dp2.y = dp2.y * 40 + 400;
+	dp1.z *= 3;
+	dp2.z *= 3;
 	p1 = ft_3d_to_2d(dp1);
 	p2 = ft_3d_to_2d(dp2);
 	ft_line_put(env, p1, p2, clr);
