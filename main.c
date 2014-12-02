@@ -6,7 +6,7 @@
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/29 12:17:29 by aalliot           #+#    #+#             */
-/*   Updated: 2014/12/01 15:36:56 by aalliot          ###   ########.fr       */
+/*   Updated: 2014/12/02 17:07:07 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,16 @@ int				ft_color_to_int(t_color clr)
 	return (c);
 }
 
+t_color			ft_rgb_color(unsigned char r, unsigned char g, unsigned char b)
+{
+	t_color		c;
+
+	c.r = r;
+	c.g = g;
+	c.b = b;
+	return (c);
+}
+
 void			ft_put_pixel(t_env env, t_pos point, t_color clr)
 {
 	mlx_pixel_put(env.mlx, env.win, point.x, point.y, ft_color_to_int(clr));
@@ -50,7 +60,6 @@ int				main(void)
 {
 	int			fd;
 	t_env		env;
-	t_color		blue = {20, 255, 0};
 	t_all		all;
 
 	env.mlx = mlx_init();
@@ -58,7 +67,7 @@ int				main(void)
 	mlx_key_hook(env.win, key_hook, &env);
 	fd = open("42.fdf", O_RDONLY);
 	all = ft_read_map(fd, ' ');
-	ft_put_3d_tab(env, all.tab, blue, all.max);
+	ft_put_3d_tab(env, all.tab, ft_rgb_color(20, 255, 0), all.max);
 	mlx_loop(env.mlx);
 	return (0);
 }
