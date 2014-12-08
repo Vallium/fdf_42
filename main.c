@@ -28,7 +28,7 @@ t_all			*ft_all_init(t_all *all)
 	all->zoom = 20;
 	all->alt = 1;
 	all->r = 0;
-	all->posimg.y = WIN_SZ_Y / 8;
+	all->posimg.y = WIN_SZ_Y / 2;
 	all->posimg.x = WIN_SZ_X / 2;
 	all->env.mlx = mlx_init();
 	all->env.win = mlx_new_window(all->env.mlx, WIN_SZ_X, WIN_SZ_Y, "F_D_F");

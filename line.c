@@ -80,7 +80,7 @@ void			ft_3d_line(t_all *all, t_3dpos dp1, t_3dpos dp2)
 	dp2.y = dp2.y * all->zoom;
 	dp1.z *= all->alt;
 	dp2.z *= all->alt;
-	color_alt(all, dp1.z);
+	color_alt(all, ((dp1.z + dp2.z) / 2));
 	p1 = ft_3d_to_2d(dp1, all);
 	p2 = ft_3d_to_2d(dp2, all);
 	p1.x += all->posimg.x;

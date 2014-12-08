@@ -38,6 +38,10 @@ t_pos			ft_3d_to_2d(t_3dpos dp1, t_all *all)
 {
 	t_pos		p1;
 
+	dp1.x -= sqrt((all->map.max.x * all->map.max.x * all->zoom) +
+		(all->map.max.y * all->map.max.y * all->zoom) / 2);
+	dp1.y -= sqrt((all->map.max.x * all->map.max.x * all->zoom) +
+		(all->map.max.y * all->map.max.y * all->zoom) / 2);
 	dp1.x = dp1.x * cos(all->r) - dp1.y * sin(all->r);
 	dp1.y = dp1.x * sin(all->r) + dp1.y * cos(all->r);
 	p1.x = dp1.x - dp1.y;
