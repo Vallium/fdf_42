@@ -12,14 +12,25 @@
 
 #include "head.h"
 
+void			ft_free_all(t_all *all)
+{
+	ft_free_map(all->map);
+	mlx_destroy_image(all->env.mlx, all->img.img);
+	free(all->env.mlx);
+	free(all->env.win);
+	free(all);
+	ft_putstr("FREE");
+	exit (0);
+}
+
 t_all			*ft_all_init(t_all *all)
 {
 	all->re = 1;
 	all->zoom = 20;
 	all->alt = 1;
 	all->r = 0;
-	all->posimg.y = POS_IMG_Y;
-	all->posimg.x = POS_IMG_X;
+	all->posimg.y = WIN_SZ_Y / 8;
+	all->posimg.x = WIN_SZ_X / 2;
 	all->env.mlx = mlx_init();
 	all->env.win = mlx_new_window(all->env.mlx, WIN_SZ_X, WIN_SZ_Y, "F_D_F");
 	return (all);
@@ -48,8 +59,5 @@ int				main(int ac, char **av)
 	mlx_loop_hook(all->env.mlx, loop_hook, all);
 	mlx_expose_hook(all->env.win, expose_hook, all);
 	mlx_loop(all->env.mlx);
-	ft_free_map(all->map);
-	mlx_destroy_image(all->env.mlx, all->img.img);
-	free(all);
 	return (0);
 }

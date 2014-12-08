@@ -16,6 +16,8 @@ int				loop_hook(t_all *all)
 {
 	if (all->re)
 	{
+		if (all->re == -1)
+			ft_free_all(all);
 		ft_bzero(all->img.data, WIN_SZ_X * WIN_SZ_Y * 4);
 		ft_put_3d_map(all);
 		mlx_put_image_to_window(all->env.mlx, all->env.win,\
@@ -34,7 +36,7 @@ int				loop_hook(t_all *all)
 int				key_hook(int keycode, t_all *all)
 {
 	if (keycode == 65307)
-		exit (0);
+		all->re = -1;
 	if (keycode == 65362)
 		move_up(all);
 	if (keycode == 65364)

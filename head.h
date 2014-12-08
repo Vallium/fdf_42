@@ -16,8 +16,6 @@
 
 # define WIN_SZ_X 2560
 # define WIN_SZ_Y 1440
-# define POS_IMG_X 950
-# define POS_IMG_Y -50
 
 # include "libft/includes/get_next_line.h"
 # include <math.h>
@@ -81,7 +79,7 @@ typedef struct	s_all
 	t_env		env;
 	t_map		map;
 	t_img		img;
-	size_t		re;
+	int			re;
 	int			alt;
 	int			zoom;
 	t_pos		posimg;
@@ -104,6 +102,7 @@ void			move_down(t_all *all);
 void			move_left(t_all *all);
 void			move_right(t_all *all);
 void			ft_free_map(t_map map);
+void			ft_free_all(t_all *all);
 t_all			*ft_all_init(t_all *all);
 t_pos			ft_3d_to_2d(t_3dpos dp1, t_all *all);
 t_map			ft_read_map(int fd, char c);
