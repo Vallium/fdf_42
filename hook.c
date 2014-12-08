@@ -27,15 +27,15 @@ int				loop_hook(t_all *all)
 		mlx_string_put(all->env.mlx, all->env.win, 10, 40, 0x98CD00,\
 			all->name);
 		mlx_string_put(all->env.mlx, all->env.win, 10, 60, 0x98CD00,\
-			"Height change : +/- .");
+			"Height Change : +/- .");
 		mlx_string_put(all->env.mlx, all->env.win, 10, 80, 0x98CD00,\
-			"Zoom : Scroll mouse .");
+			"Zoom : Scroll Mouse .");
 		mlx_string_put(all->env.mlx, all->env.win, 10, 100, 0x98CD00,\
 			"Navigation : Arrows .");
 		mlx_string_put(all->env.mlx, all->env.win, 10, 120, 0x98CD00,\
-			"Rot: -Clock: 9      .");
+			"Rot Clk/Cclk :  8/9 .");
 		mlx_string_put(all->env.mlx, all->env.win, 10, 140, 0x98CD00,\
-			"     -CnterClock: 8 .");
+			"Reset Image : Enter .");
 		all->re = 0;
 	}
 	return (0);
@@ -61,6 +61,8 @@ int				key_hook(int keycode, t_all *all)
 		rot_hor(all);
 	if (keycode == 65465)
 		rot_ahor(all);
+	if (keycode == 65421)
+		ft_all_init(all);
 	return (0);
 }
 

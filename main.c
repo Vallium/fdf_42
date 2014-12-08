@@ -28,10 +28,8 @@ t_all			*ft_all_init(t_all *all)
 	all->zoom = 20;
 	all->alt = 1;
 	all->r = 0;
-	all->posimg.y = WIN_SZ_Y / 2;
+	all->posimg.y = WIN_SZ_Y / 8;
 	all->posimg.x = WIN_SZ_X / 2;
-	all->env.mlx = mlx_init();
-	all->env.win = mlx_new_window(all->env.mlx, WIN_SZ_X, WIN_SZ_Y, "F_D_F");
 	return (all);
 }
 
@@ -46,11 +44,12 @@ int				main(int ac, char **av)
 		return (0);
 	}
 	all = (t_all*)malloc(sizeof(t_all));
+	all->env.mlx = mlx_init();
+	all->env.win = mlx_new_window(all->env.mlx, WIN_SZ_X, WIN_SZ_Y, "F_D_F");
 	all = ft_all_init(all);
 	all->name = av[1];
 	fd = open(av[1], O_RDONLY);
 	all->map = ft_read_map(fd, ' ');
-	all->img.clrline = mlx_get_color_value(all->env.mlx, 0xFF6201);
 	all->img.img = mlx_new_image(all->env.mlx, WIN_SZ_X, WIN_SZ_Y);
 	all->img.data = mlx_get_data_addr(all->img.img, &all->img.bpp,\
 			&all->img.sizeline, &all->img.endian);
