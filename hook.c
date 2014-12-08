@@ -6,7 +6,7 @@
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/05 15:34:21 by aalliot           #+#    #+#             */
-/*   Updated: 2014/12/05 15:34:24 by aalliot          ###   ########.fr       */
+/*   Updated: 2014/12/08 12:49:30 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int				key_hook(int keycode, t_all *all)
 	if (keycode == 65363)
 		move_right(all);
 	if (keycode == 'u')
-	{	
+	{
 		all->alt += 1;
 		all->re = 1;
 	}
