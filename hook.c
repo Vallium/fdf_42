@@ -23,11 +23,17 @@ int				loop_hook(t_all *all)
 		mlx_put_image_to_window(all->env.mlx, all->env.win,\
 				all->img.img, 0, 0);
 		mlx_string_put(all->env.mlx, all->env.win, 10, 20, 0x98CD00,\
-			"Height change : +/-.");
+			"+------ F D F ------+");
 		mlx_string_put(all->env.mlx, all->env.win, 10, 40, 0x98CD00,\
-			"Zoom : Scroll mouse.");
+			"Height change : +/- .");
 		mlx_string_put(all->env.mlx, all->env.win, 10, 60, 0x98CD00,\
-			"Navigation : Arrows.");
+			"Zoom : Scroll mouse .");
+		mlx_string_put(all->env.mlx, all->env.win, 10, 80, 0x98CD00,\
+			"Navigation : Arrows .");
+		mlx_string_put(all->env.mlx, all->env.win, 10, 100, 0x98CD00,\
+			"Rot : -Clock: 9     .");
+		mlx_string_put(all->env.mlx, all->env.win, 10, 120, 0x98CD00,\
+			"      -AntiClock: 8 .");
 		all->re = 0;
 	}
 	return (0);
@@ -46,26 +52,13 @@ int				key_hook(int keycode, t_all *all)
 	if (keycode == 65363)
 		move_right(all);
 	if (keycode == 65451)
-	{
-		all->alt += 1;
-		all->re = 1;
-	}
+		height_up(all);
 	if (keycode == 65453)
-	{
-		if (all->alt)
-			all->alt -= 1;
-		all->re = 1;
-	}
-	if (keycode == 'u')
-	{
-		all->r += 0.1;
-		all->re = 1;
-	}
-	if (keycode == 'i')
-	{
-		all->r -= 0.1;
-		all->re = 1;
-	}
+		height_down(all);
+	if (keycode == 65464)
+		rot_hor(all);
+	if (keycode == 65465)
+		rot_ahor(all);
 	return (0);
 }
 

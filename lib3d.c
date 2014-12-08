@@ -12,7 +12,7 @@
 
 #include "head.h"
 
-void	color_alt(t_all *all, int z)
+void			color_alt(t_all *all, int z)
 {
 	if (all->alt == 0)
 		all->img.clrline = 0x7FC6BC;

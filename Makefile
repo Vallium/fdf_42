@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME	= fdf
-SRC		= main.c line.c lib3d.c hook.c moving.c read_map.c
+SRC		= main.c line.c lib3d.c hook.c moving.c read_map.c rotate.c
 OBJ		= $(SRC:.c=.o)
 HDR		= libft/includes/
 MLX		= -L/usr/X11/lib -lmlx -lXext -lX11
