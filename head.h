@@ -85,12 +85,13 @@ typedef struct	s_all
 	int			alt;
 	int			zoom;
 	t_pos		posimg;
+	float		r;
 }				t_all;
 
 int				key_hook(int keycode, t_all *all);
 int				mouse_hook(int button, int x, int y, t_all *all);
 int				loop_hook(t_all *all);
-int				ft_clr_to_int(t_color c);
+int				expose_hook(t_all *all);
 void			ft_put_pxl_img(t_all *all, t_pos pt);
 void			ft_line_put(t_all *all, t_pos p1, t_pos p2);
 void			ft_line_put_1(t_all *all, t_line line);
@@ -102,8 +103,9 @@ void			move_up(t_all *all);
 void			move_down(t_all *all);
 void			move_left(t_all *all);
 void			move_right(t_all *all);
+void			ft_free_map(t_map map);
 t_all			*ft_all_init(t_all *all);
-t_pos			ft_3d_to_2d(t_3dpos dp1);
+t_pos			ft_3d_to_2d(t_3dpos dp1, t_all *all);
 t_map			ft_read_map(int fd, char c);
 t_3dpos			**ft_fill_map(t_list *lst, t_3dpos pt);
 

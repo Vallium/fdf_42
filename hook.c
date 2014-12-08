@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "head.h"
-#include <stdio.h>
 
 int				loop_hook(t_all *all)
 {
@@ -21,6 +20,12 @@ int				loop_hook(t_all *all)
 		ft_put_3d_map(all);
 		mlx_put_image_to_window(all->env.mlx, all->env.win,\
 				all->img.img, 0, 0);
+		mlx_string_put(all->env.mlx, all->env.win, 10, 20, 0x98CD00,\
+			"Height change : +/-.");
+		mlx_string_put(all->env.mlx, all->env.win, 10, 40, 0x98CD00,\
+			"Zoom : Scroll mouse");
+		mlx_string_put(all->env.mlx, all->env.win, 10, 60, 0x98CD00,\
+			"Navigation : Arrows");
 		all->re = 0;
 	}
 	return (0);
@@ -28,7 +33,6 @@ int				loop_hook(t_all *all)
 
 int				key_hook(int keycode, t_all *all)
 {
-	printf("Keycode = %d\n", keycode);
 	if (keycode == 65307)
 		exit (0);
 	if (keycode == 65362)
@@ -39,15 +43,25 @@ int				key_hook(int keycode, t_all *all)
 		move_left(all);
 	if (keycode == 65363)
 		move_right(all);
-	if (keycode == 'u')
+	if (keycode == 65451)
 	{
 		all->alt += 1;
 		all->re = 1;
 	}
-	if (keycode == 'd')
+	if (keycode == 65453)
 	{
 		if (all->alt)
 			all->alt -= 1;
+		all->re = 1;
+	}
+	if (keycode == 'u')
+	{
+		all->r += 0.1;
+		all->re = 1;
+	}
+	if (keycode == 'i')
+	{
+		all->r -= 0.1;
 		all->re = 1;
 	}
 	return (0);
@@ -55,7 +69,8 @@ int				key_hook(int keycode, t_all *all)
 
 int				mouse_hook(int button, int x, int y, t_all *all)
 {
-	printf("Button = %d, x = %d, y = %d\n", button, x, y);
+	(void)x;
+	(void)y;
 	if (button == 4)
 	{
 		all->zoom++;
@@ -70,5 +85,18 @@ int				mouse_hook(int button, int x, int y, t_all *all)
 			all->zoom--;
 		all->re = 1;
 	}
+	return (0);
+}
+
+int				expose_hook(t_all *all)
+{
+	mlx_put_image_to_window(all->env.mlx, all->env.win,\
+		all->img.img, 0, 0);
+	mlx_string_put(all->env.mlx, all->env.win, 10, 20, 0x98CD00,\
+		"Height change : +/-.");
+	mlx_string_put(all->env.mlx, all->env.win, 10, 40, 0x98CD00,\
+		"Zoom : Scroll mouse");
+	mlx_string_put(all->env.mlx, all->env.win, 10, 60, 0x98CD00,\
+		"Navigation : Arrows");
 	return (0);
 }

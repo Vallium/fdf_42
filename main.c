@@ -16,7 +16,8 @@ t_all			*ft_all_init(t_all *all)
 {
 	all->re = 1;
 	all->zoom = 20;
-	all->alt = 0;
+	all->alt = 1;
+	all->r = 0;
 	all->posimg.y = POS_IMG_Y;
 	all->posimg.x = POS_IMG_X;
 	all->env.mlx = mlx_init();
@@ -28,7 +29,6 @@ int				main(int ac, char **av)
 {
 	int			fd;
 	t_all		*all;
-	t_color		green = {20, 255, 0};
 
 	if (ac == 1)
 	{
@@ -39,14 +39,17 @@ int				main(int ac, char **av)
 	all = ft_all_init(all);
 	fd = open(av[1], O_RDONLY);
 	all->map = ft_read_map(fd, ' ');
-	all->img.clrline = mlx_get_color_value(all->env.mlx, ft_clr_to_int(green));
+	all->img.clrline = mlx_get_color_value(all->env.mlx, 0xFF6201);
 	all->img.img = mlx_new_image(all->env.mlx, WIN_SZ_X, WIN_SZ_Y);
 	all->img.data = mlx_get_data_addr(all->img.img, &all->img.bpp,\
 			&all->img.sizeline, &all->img.endian);
 	mlx_key_hook(all->env.win, key_hook, all);
 	mlx_mouse_hook(all->env.win, mouse_hook, all);
 	mlx_loop_hook(all->env.mlx, loop_hook, all);
+	mlx_expose_hook(all->env.win, expose_hook, all);
 	mlx_loop(all->env.mlx);
+	ft_free_map(all->map);
+	mlx_destroy_image(all->env.mlx, all->img.img);
 	free(all);
 	return (0);
 }

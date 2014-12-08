@@ -12,25 +12,15 @@
 
 #include "head.h"
 
-t_pos			ft_3d_to_2d(t_3dpos dp1)
+t_pos			ft_3d_to_2d(t_3dpos dp1, t_all *all)
 {
 	t_pos		p1;
 
+	dp1.x = dp1.x * cos(all->r) - dp1.y * sin(all->r);
+	dp1.y = dp1.x * sin(all->r) + dp1.y * cos(all->r);
 	p1.x = dp1.x - dp1.y;
 	p1.y = dp1.z + (dp1.x / 2.0) + (dp1.y / 2.0);
 	return (p1);
-}
-
-int				ft_clr_to_int(t_color clr)
-{
-	int			c;
-
-	c = clr.r;
-	c = c << 8;
-	c += clr.g;
-	c = c << 8;
-	c += clr.b;
-	return (c);
 }
 
 void			ft_put_pxl_img(t_all *all, t_pos pt)

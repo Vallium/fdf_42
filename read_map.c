@@ -6,12 +6,19 @@
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/29 22:35:11 by aalliot           #+#    #+#             */
-/*   Updated: 2014/11/30 18:46:20 by aalliot          ###   ########.fr       */
+/*   Updated: 2014/12/08 15:41:36 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 #include <stdio.h>
+
+void			ft_free_map(t_map map)
+{
+	while (map.max.y <= 0)
+		free(map.map[map.max.y--]);
+	free(map.map);
+}
 
 t_3dpos			**ft_fill_map(t_list *lst, t_3dpos pt)
 {
@@ -29,6 +36,7 @@ t_3dpos			**ft_fill_map(t_list *lst, t_3dpos pt)
 		tab[pt.y][pt.x] = pt;
 		lst = lst->next;
 	}
+	ft_lstdelsim(&lst);
 	return (tab);
 }
 
