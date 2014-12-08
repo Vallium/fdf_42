@@ -14,8 +14,8 @@
 
 # define HEAD_H
 
-# define WIN_SZ_X 2400
-# define WIN_SZ_Y 1200
+# define WIN_SZ_X 2560
+# define WIN_SZ_Y 1440
 # define POS_IMG_X 950
 # define POS_IMG_Y -50
 

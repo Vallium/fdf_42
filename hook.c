@@ -40,13 +40,14 @@ int				key_hook(int keycode, t_all *all)
 	if (keycode == 65363)
 		move_right(all);
 	if (keycode == 'u')
-	{
-		all->alt += 2;
+	{	
+		all->alt += 1;
 		all->re = 1;
 	}
 	if (keycode == 'd')
 	{
-		all->alt -= 2;
+		if (all->alt)
+			all->alt -= 1;
 		all->re = 1;
 	}
 	return (0);
@@ -57,14 +58,16 @@ int				mouse_hook(int button, int x, int y, t_all *all)
 	printf("Button = %d, x = %d, y = %d\n", button, x, y);
 	if (button == 4)
 	{
-		all->zoom += 1;
+		all->zoom++;
 		all->alt++;
 		all->re = 1;
 	}
 	if (button == 5)
 	{
-		all->zoom -= 1;
-		all->alt--;
+		if (all->alt)
+			all->alt--;
+		if (all->zoom)
+			all->zoom--;
 		all->re = 1;
 	}
 	return (0);

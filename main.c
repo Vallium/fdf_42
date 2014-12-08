@@ -15,8 +15,8 @@
 t_all			*ft_all_init(t_all *all)
 {
 	all->re = 1;
-	all->zoom = 30;
-	all->alt = 2;
+	all->zoom = 20;
+	all->alt = 0;
 	all->posimg.y = POS_IMG_Y;
 	all->posimg.x = POS_IMG_X;
 	all->env.mlx = mlx_init();
