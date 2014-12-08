@@ -77,5 +77,6 @@ void			ft_put_3d_tab(t_env env, t_3dpos **tab, t_color c, t_pos max);
 t_pos			ft_3d_to_2d(t_3dpos dp1);
 t_all			ft_read_map(int fd, char c);
 t_3dpos			**ft_fill_tab(t_list *lst, t_3dpos pt);
+void			ft_3d_line_small(t_env env, t_3dpos dp1, t_3dpos dp2, t_color clr);
 
 #endif

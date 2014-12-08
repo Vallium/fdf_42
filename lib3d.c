@@ -6,7 +6,7 @@
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/29 22:34:44 by aalliot           #+#    #+#             */
-/*   Updated: 2014/12/02 18:05:34 by aalliot          ###   ########.fr       */
+/*   Updated: 2014/12/07 21:36:13 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void			ft_line_put(t_env env, t_pos p1, t_pos p2, t_color clr)
 	line.p2 = p2;
 	line.clr = clr;
 	ft_put_pixel(env, line.p1, line.clr);
+		usleep(30);
 	if (line.dx > line.dy)
 		ft_line_put_1(env, line);
 	else
@@ -46,6 +47,7 @@ void			ft_line_put_1(t_env env, t_line line)
 			cumul -= line.dx;
 			line.p1.y += line.inc.y;
 		}
+		usleep(30);
 		ft_put_pixel(env, line.p1, line.clr);
 	}
 }
@@ -66,6 +68,7 @@ void			ft_line_put_2(t_env env, t_line line)
 			cumul -= line.dy;
 			line.p1.x += line.inc.x;
 		}
+		usleep(30);
 		ft_put_pixel(env, line.p1, line.clr);
 	}
 }
@@ -74,16 +77,59 @@ void			ft_3d_line(t_env env, t_3dpos dp1, t_3dpos dp2, t_color clr)
 {
 	t_pos		p1;
 	t_pos		p2;
+	int			j;
+	t_color		black = {200, 0, 0};
 
 	dp1.x = dp1.x * 40 + 800;
 	dp1.y = dp1.y * 40 + 400;
 	dp2.x = dp2.x * 40 + 800;
 	dp2.y = dp2.y * 40 + 400;
-	dp1.z *= 3;
-	dp2.z *= 3;
+	dp1.z *= 12;
+	dp2.z *= 12;
 	p1 = ft_3d_to_2d(dp1);
 	p2 = ft_3d_to_2d(dp2);
 	ft_line_put(env, p1, p2, clr);
+	j = 0;
+	p1.y++;
+	p2.y++;
+	p1.x++;
+	p2.x++;
+	j++;
+	while (j < 20 && dp2.z != 0)
+	{
+		ft_line_put(env, p1, p2, black);
+		p1.y--;
+		p2.y--;
+		p1.x--;
+		p2.x--;
+		j++;
+	}
+}
+
+void			ft_3d_line_small(t_env env, t_3dpos dp1, t_3dpos dp2, t_color clr)
+{
+	t_pos		p1;
+	t_pos		p2;
+	int			j;
+	t_color		black = {248, 0, 0};
+
+	dp1.x = dp1.x * 40 + 800;
+	dp1.y = dp1.y + 400;
+	dp2.x = dp2.x * 40 + 800;
+	dp2.y = dp2.y + 400;
+	dp1.z *= 8;
+	dp2.z *= 8;
+	p1 = ft_3d_to_2d(dp1);
+	p2 = ft_3d_to_2d(dp2);
+	ft_line_put(env, p1, p2, clr);
+	j = 1;
+	while (j < 29)
+	{
+		ft_line_put(env, p1, p2, black);
+		p1.y++;
+		p2.y++;
+		j++;
+	}
 }
 
 void			ft_put_3d_tab(t_env env, t_3dpos **tab, t_color clr, t_pos max)
@@ -103,6 +149,7 @@ void			ft_put_3d_tab(t_env env, t_3dpos **tab, t_color clr, t_pos max)
 			x++;
 		}
 		y++;
+
 	}
 	ft_put_linesub(env, tab, clr, max);
 }
