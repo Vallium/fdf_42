@@ -25,9 +25,9 @@ int				loop_hook(t_all *all)
 		mlx_string_put(all->env.mlx, all->env.win, 10, 20, 0x98CD00,\
 			"Height change : +/-.");
 		mlx_string_put(all->env.mlx, all->env.win, 10, 40, 0x98CD00,\
-			"Zoom : Scroll mouse");
+			"Zoom : Scroll mouse.");
 		mlx_string_put(all->env.mlx, all->env.win, 10, 60, 0x98CD00,\
-			"Navigation : Arrows");
+			"Navigation : Arrows.");
 		all->re = 0;
 	}
 	return (0);
@@ -97,8 +97,8 @@ int				expose_hook(t_all *all)
 	mlx_string_put(all->env.mlx, all->env.win, 10, 20, 0x98CD00,\
 		"Height change : +/-.");
 	mlx_string_put(all->env.mlx, all->env.win, 10, 40, 0x98CD00,\
-		"Zoom : Scroll mouse");
+		"Zoom : Scroll mouse.");
 	mlx_string_put(all->env.mlx, all->env.win, 10, 60, 0x98CD00,\
-		"Navigation : Arrows");
+		"Navigation : Arrows.");
 	return (0);
 }
