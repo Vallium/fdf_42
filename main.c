@@ -19,7 +19,6 @@ void			ft_free_all(t_all *all)
 	free(all->env.mlx);
 	free(all->env.win);
 	free(all);
-	ft_putstr("FREE");
 	exit (0);
 }
 

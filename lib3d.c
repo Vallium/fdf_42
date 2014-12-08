@@ -12,6 +12,28 @@
 
 #include "head.h"
 
+void	color_alt(t_all *all, int z)
+{
+	if (all->alt == 0)
+		all->img.clrline = 0x7FC6BC;
+	else if ((-z / all->alt) <= -2)
+		all->img.clrline = 0x4BB5C1;
+	else if ((-z / all->alt) <= 0)
+		all->img.clrline = 0x7FC6BC;
+	else if ((-z / all->alt) <= 4)
+		all->img.clrline = 0x93B550;
+	else if ((-z / all->alt) <= 6)
+		all->img.clrline = 0x98CC50;
+	else if ((-z / all->alt) <= 8)
+		all->img.clrline = 0xB39167;
+	else if ((-z / all->alt) <= 10)
+		all->img.clrline = 0xBA9D7A;
+	else if ((-z / all->alt) <= 12)
+		all->img.clrline = 0xCAA986;
+	else
+		all->img.clrline = 0xEDF7F2;
+}
+
 t_pos			ft_3d_to_2d(t_3dpos dp1, t_all *all)
 {
 	t_pos		p1;
@@ -36,6 +58,7 @@ void			ft_put_3d_map(t_all *all)
 	int			y;
 
 	y = 0;
+	color_alt(all, all->map.map[0][0].z);
 	while (y < (all->map.max.y - 1))
 	{
 		x = 0;
