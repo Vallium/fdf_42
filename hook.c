@@ -25,15 +25,17 @@ int				loop_hook(t_all *all)
 		mlx_string_put(all->env.mlx, all->env.win, 10, 20, 0x98CD00,\
 			"+------ F D F ------+");
 		mlx_string_put(all->env.mlx, all->env.win, 10, 40, 0x98CD00,\
-			"Height change : +/- .");
+			all->name);
 		mlx_string_put(all->env.mlx, all->env.win, 10, 60, 0x98CD00,\
-			"Zoom : Scroll mouse .");
+			"Height change : +/- .");
 		mlx_string_put(all->env.mlx, all->env.win, 10, 80, 0x98CD00,\
-			"Navigation : Arrows .");
+			"Zoom : Scroll mouse .");
 		mlx_string_put(all->env.mlx, all->env.win, 10, 100, 0x98CD00,\
-			"Rot : -Clock: 9     .");
+			"Navigation : Arrows .");
 		mlx_string_put(all->env.mlx, all->env.win, 10, 120, 0x98CD00,\
-			"      -AntiClock: 8 .");
+			"Rot: -Clock: 9      .");
+		mlx_string_put(all->env.mlx, all->env.win, 10, 140, 0x98CD00,\
+			"     -CnterClock: 8 .");
 		all->re = 0;
 	}
 	return (0);

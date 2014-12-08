@@ -84,6 +84,7 @@ typedef struct	s_all
 	int			zoom;
 	t_pos		posimg;
 	float		r;
+	char		*name;
 }				t_all;
 
 int				key_hook(int keycode, t_all *all);

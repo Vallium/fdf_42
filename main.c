@@ -47,6 +47,7 @@ int				main(int ac, char **av)
 	}
 	all = (t_all*)malloc(sizeof(t_all));
 	all = ft_all_init(all);
+	all->name = av[1];
 	fd = open(av[1], O_RDONLY);
 	all->map = ft_read_map(fd, ' ');
 	all->img.clrline = mlx_get_color_value(all->env.mlx, 0xFF6201);
