@@ -15,27 +15,23 @@
 void			move_up(t_all *all)
 {
 	all->posimg.y -= 5;
-	all->posimg.x -= 5;
 	all->re = 1;
 }
 
 void			move_down(t_all *all)
 {
 	all->posimg.y += 5;
-	all->posimg.x += 5;
 	all->re = 1;
 }
 
 void			move_left(t_all *all)
 {
-	all->posimg.y += 5;
 	all->posimg.x -= 5;
 	all->re = 1;
 }
 
 void			move_right(t_all *all)
 {
-	all->posimg.y -= 5;
 	all->posimg.x += 5;
 	all->re = 1;
 }

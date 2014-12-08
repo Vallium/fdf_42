@@ -15,8 +15,8 @@
 
 void			ft_free_map(t_map map)
 {
-	while (map.max.y <= 0)
-		free(map.map[map.max.y--]);
+	while (map.max.y--)
+		free(map.map[map.max.y]);
 	free(map.map);
 }
 

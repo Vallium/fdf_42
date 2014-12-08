@@ -74,13 +74,17 @@ void			ft_3d_line(t_all *all, t_3dpos dp1, t_3dpos dp2)
 	t_pos		p1;
 	t_pos		p2;
 
-	dp1.x = dp1.x * all->zoom + all->posimg.x;
-	dp1.y = dp1.y * all->zoom + all->posimg.y;
-	dp2.x = dp2.x * all->zoom + all->posimg.x;
-	dp2.y = dp2.y * all->zoom + all->posimg.y;
+	dp1.x = dp1.x * all->zoom;
+	dp1.y = dp1.y * all->zoom;
+	dp2.x = dp2.x * all->zoom;
+	dp2.y = dp2.y * all->zoom;
 	dp1.z *= all->alt;
 	dp2.z *= all->alt;
 	p1 = ft_3d_to_2d(dp1, all);
 	p2 = ft_3d_to_2d(dp2, all);
+	p1.x += all->posimg.x;
+	p1.y += all->posimg.y;
+	p2.x += all->posimg.x;
+	p2.y += all->posimg.y;
 	ft_line_put(all, p1, p2);
 }
