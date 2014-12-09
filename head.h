@@ -45,7 +45,7 @@ typedef struct	s_3dpos
 typedef struct	s_map
 {
 	t_3dpos		**map;
-	t_pos		max;
+	t_3dpos		max;
 }				t_map;
 
 typedef struct	s_color
@@ -83,6 +83,7 @@ typedef struct	s_all
 	int			alt;
 	int			zoom;
 	t_pos		posimg;
+	float		adj;
 	char		*name;
 }				t_all;
 
@@ -101,14 +102,19 @@ void			move_up(t_all *all);
 void			move_down(t_all *all);
 void			move_left(t_all *all);
 void			move_right(t_all *all);
+void			alt_up(t_all *all);
+void			alt_down(t_all *all);
+void			adj_down(t_all *all);
+void			adj_up(t_all *all);
 void			ft_free_map(t_map map);
 void			ft_free_all(t_all *all);
 void			ft_ac_error(int ac);
 void			ft_is_fd(int fd, char *av);
 void			color_alt(t_all *all, int z);
+void			ft_dir_err(t_all *all, int erno);
+void			ft_read_map(t_all *all, int fd, char c);
 t_all			*ft_all_init(t_all *all);
-t_pos			ft_3d_to_2d(t_3dpos dp1);
-t_map			ft_read_map(int fd, char c);
+t_pos			ft_3d_to_2d(t_all *all, t_3dpos dp1);
 t_3dpos			**ft_fill_map(t_list *lst, t_3dpos pt);
 
 #endif

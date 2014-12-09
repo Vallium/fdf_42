@@ -11,7 +11,17 @@
 /* ************************************************************************** */
 
 #include "head.h"
-#include <stdio.h>
+
+void			ft_dir_err(t_all *all, int erno)
+{
+	if (erno == -1)
+	{
+		free(all);
+		ft_putstr_fd("fdf: The file you tried to open is a directory. ", 2);
+		ft_putendl_fd("Put a valid map as argument.", 2);
+		exit (0);
+	}
+}
 
 void			ft_free_map(t_map map)
 {
@@ -40,31 +50,29 @@ t_3dpos			**ft_fill_map(t_list *lst, t_3dpos pt)
 	return (tab);
 }
 
-t_map			ft_read_map(int fd, char c)
+void			ft_read_map(t_all *all, int fd, char c)
 {
 	char		*tmp;
 	char		**tabx;
-	t_3dpos		pt;
 	t_list		*lst;
-	t_map		map;
+	int			erno;
 
 	lst = NULL;
-	pt.y = 0;
-	while (get_next_line(fd, &tmp))
+	all->map.max.y = 0;
+	while ((erno = get_next_line(fd, &tmp)))
 	{
-		pt.x = 0;
+		ft_dir_err(all, erno);
+		all->map.max.x = 0;
 		tabx = ft_strsplit(tmp, c);
 		free(tmp);
 		while (*tabx)
 		{
-			pt.z = ft_atoi(*tabx++);
-			ft_lstadd(&lst, ft_lstnew(&pt, sizeof(t_3dpos)));
-			pt.x++;
+			all->map.max.z = ft_atoi(*tabx);
+			ft_lstadd(&lst, ft_lstnew(&all->map.max, sizeof(t_3dpos)));
+			all->map.max.x++;
+			free(*tabx++);
 		}
-		pt.y++;
+		all->map.max.y++;
 	}
-	map.map = ft_fill_map(lst, pt);
-	map.max.x = pt.x;
-	map.max.y = pt.y;
-	return (map);
+	all->map.map = ft_fill_map(lst, all->map.max);
 }

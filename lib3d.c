@@ -36,12 +36,12 @@ void			color_alt(t_all *all, int z)
 		all->img.clrline = 0xEDF7F2;
 }
 
-t_pos			ft_3d_to_2d(t_3dpos dp1)
+t_pos			ft_3d_to_2d(t_all *all, t_3dpos dp1)
 {
 	t_pos		p1;
 
 	p1.x = dp1.x - dp1.y;
-	p1.y = dp1.z + (dp1.x / 2.0) + (dp1.y / 2.0);
+	p1.y = dp1.z + (dp1.x / all->adj) + (dp1.y / all->adj);
 	return (p1);
 }
 

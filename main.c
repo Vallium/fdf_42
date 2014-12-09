@@ -27,6 +27,7 @@ t_all			*ft_all_init(t_all *all)
 	all->re = 1;
 	all->zoom = 20;
 	all->alt = 1;
+	all->adj = 2.0;
 	all->posimg.y = WIN_SZ_Y / 8;
 	all->posimg.x = WIN_SZ_X / 2;
 	return (all);
@@ -47,7 +48,7 @@ void			ft_ac_error(int ac)
 {
 	if (ac != 2)
 	{
-		ft_putendl_fd("fdf: Map missing, or please put only one argument.", 2);
+		ft_putendl_fd("fdf: usage: <example.fdf>", 2);
 		exit (0);
 	}
 }
@@ -61,11 +62,11 @@ int				main(int ac, char **av)
 	fd = open(av[1], O_RDONLY);
 	ft_is_fd(fd, av[1]);
 	all = (t_all*)malloc(sizeof(t_all));
+	ft_read_map(all, fd, ' ');
 	all->env.mlx = mlx_init();
 	all->env.win = mlx_new_window(all->env.mlx, WIN_SZ_X, WIN_SZ_Y, "F_D_F");
 	all = ft_all_init(all);
 	all->name = av[1];
-	all->map = ft_read_map(fd, ' ');
 	all->img.img = mlx_new_image(all->env.mlx, WIN_SZ_X, WIN_SZ_Y);
 	all->img.data = mlx_get_data_addr(all->img.img, &all->img.bpp,\
 			&all->img.sizeline, &all->img.endian);
