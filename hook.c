@@ -14,19 +14,25 @@
 
 void			cartridge(t_all *all)
 {
-	mlx_string_put(all->env.mlx, all->env.win, 10, 20, 0x98CD00,\
-		"+------ F D F ------+");
-	mlx_string_put(all->env.mlx, all->env.win, 10, 40, 0x98CD00,\
+	mlx_string_put(all->env.mlx, all->env.win, ((WIN_SZ_X / 2) - 198), 20, \
+		0xF65B0A, \
+		"                               F D F                               ");
+	mlx_string_put(all->env.mlx, all->env.win, ((WIN_SZ_X / 2) - 198), 20, \
+		0x98CD00, \
+		"+-----------------------------       -----------------------------+");
+	mlx_string_put(all->env.mlx, all->env.win, 10, 30, 0xF65B0A,\
+		"Map Name :");
+	mlx_string_put(all->env.mlx, all->env.win, 76, 30, 0x98CD00,\
 		all->name);
-	mlx_string_put(all->env.mlx, all->env.win, 10, 60, 0x98CD00,\
+	mlx_string_put(all->env.mlx, all->env.win, 10, 50, 0xF65B0A,\
 		"Height Change : +/- .");
-	mlx_string_put(all->env.mlx, all->env.win, 10, 80, 0x98CD00,\
+	mlx_string_put(all->env.mlx, all->env.win, 10, 70, 0xF65B0A,\
 		"Zoom : Scroll Mouse .");
-	mlx_string_put(all->env.mlx, all->env.win, 10, 100, 0x98CD00,\
+	mlx_string_put(all->env.mlx, all->env.win, 10, 90, 0xF65B0A,\
 		"View Adjustmt : 6/9 .");
-	mlx_string_put(all->env.mlx, all->env.win, 10, 120, 0x98CD00,\
+	mlx_string_put(all->env.mlx, all->env.win, 10, 110, 0xF65B0A,\
 		"Navigation : Arrows .");
-	mlx_string_put(all->env.mlx, all->env.win, 10, 140, 0x98CD00,\
+	mlx_string_put(all->env.mlx, all->env.win, 10, 130, 0xF65B0A,\
 		"Reset Image : Enter .");
 }
 
@@ -51,13 +57,13 @@ int				key_hook(int keycode, t_all *all)
 	if (keycode == 65307)
 		all->re = -1;
 	if (keycode == 65362)
-		move_up(all);
-	if (keycode == 65364)
 		move_down(all);
+	if (keycode == 65364)
+		move_up(all);
 	if (keycode == 65361)
-		move_left(all);
-	if (keycode == 65363)
 		move_right(all);
+	if (keycode == 65363)
+		move_left(all);
 	if (keycode == 65451)
 		alt_up(all);
 	if (keycode == 65453)
