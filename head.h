@@ -103,6 +103,8 @@ void			move_left(t_all *all);
 void			move_right(t_all *all);
 void			ft_free_map(t_map map);
 void			ft_free_all(t_all *all);
+void			ft_ac_error(int ac);
+void			ft_is_fd(int fd, char *av);
 void			color_alt(t_all *all, int z);
 t_all			*ft_all_init(t_all *all);
 t_pos			ft_3d_to_2d(t_3dpos dp1);
