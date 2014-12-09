@@ -48,7 +48,7 @@ void			ft_ac_error(int ac)
 {
 	if (ac != 2)
 	{
-		ft_putendl_fd("fdf: usage: <example.fdf>", 2);
+		ft_putendl_fd("fdf: Usage: <example.fdf>", 2);
 		exit (0);
 	}
 }
