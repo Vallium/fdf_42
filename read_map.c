@@ -75,4 +75,5 @@ void			ft_read_map(t_all *all, int fd, char c)
 		all->map.max.y++;
 	}
 	all->map.map = ft_fill_map(lst, all->map.max);
+	close(fd);
 }

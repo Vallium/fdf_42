@@ -12,6 +12,24 @@
 
 #include "head.h"
 
+void			cartridge(t_all *all)
+{
+	mlx_string_put(all->env.mlx, all->env.win, 10, 20, 0x98CD00,\
+		"+------ F D F ------+");
+	mlx_string_put(all->env.mlx, all->env.win, 10, 40, 0x98CD00,\
+		all->name);
+	mlx_string_put(all->env.mlx, all->env.win, 10, 60, 0x98CD00,\
+		"Height Change : +/- .");
+	mlx_string_put(all->env.mlx, all->env.win, 10, 80, 0x98CD00,\
+		"Zoom : Scroll Mouse .");
+	mlx_string_put(all->env.mlx, all->env.win, 10, 100, 0x98CD00,\
+		"View Adjustmt : 6/9 .");
+	mlx_string_put(all->env.mlx, all->env.win, 10, 120, 0x98CD00,\
+		"Navigation : Arrows .");
+	mlx_string_put(all->env.mlx, all->env.win, 10, 140, 0x98CD00,\
+		"Reset Image : Enter .");
+}
+
 int				loop_hook(t_all *all)
 {
 	if (all->re)
@@ -22,20 +40,7 @@ int				loop_hook(t_all *all)
 		ft_put_3d_map(all);
 		mlx_put_image_to_window(all->env.mlx, all->env.win,\
 				all->img.img, 0, 0);
-		mlx_string_put(all->env.mlx, all->env.win, 10, 20, 0x98CD00,\
-			"+------ F D F ------+");
-		mlx_string_put(all->env.mlx, all->env.win, 10, 40, 0x98CD00,\
-			all->name);
-		mlx_string_put(all->env.mlx, all->env.win, 10, 60, 0x98CD00,\
-			"Height Change : +/- .");
-		mlx_string_put(all->env.mlx, all->env.win, 10, 80, 0x98CD00,\
-			"Zoom : Scroll Mouse .");
-		mlx_string_put(all->env.mlx, all->env.win, 10, 100, 0x98CD00,\
-			"View Adjustmt : 6/9 .");
-		mlx_string_put(all->env.mlx, all->env.win, 10, 120, 0x98CD00,\
-			"Navigation : Arrows .");
-		mlx_string_put(all->env.mlx, all->env.win, 10, 140, 0x98CD00,\
-			"Reset Image : Enter .");
+		cartridge(all);
 		all->re = 0;
 	}
 	return (0);
@@ -91,11 +96,6 @@ int				expose_hook(t_all *all)
 {
 	mlx_put_image_to_window(all->env.mlx, all->env.win,\
 		all->img.img, 0, 0);
-	mlx_string_put(all->env.mlx, all->env.win, 10, 20, 0x98CD00,\
-		"Height change : +/-.");
-	mlx_string_put(all->env.mlx, all->env.win, 10, 40, 0x98CD00,\
-		"Zoom : Scroll mouse.");
-	mlx_string_put(all->env.mlx, all->env.win, 10, 60, 0x98CD00,\
-		"Navigation : Arrows.");
+	cartridge(all);
 	return (0);
 }

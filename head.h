@@ -106,6 +106,7 @@ void			alt_up(t_all *all);
 void			alt_down(t_all *all);
 void			adj_down(t_all *all);
 void			adj_up(t_all *all);
+void			cartridge(t_all *all);
 void			ft_free_map(t_map map);
 void			ft_free_all(t_all *all);
 void			ft_ac_error(int ac);
