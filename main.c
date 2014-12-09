@@ -27,7 +27,6 @@ t_all			*ft_all_init(t_all *all)
 	all->re = 1;
 	all->zoom = 20;
 	all->alt = 1;
-	all->r = 0;
 	all->posimg.y = WIN_SZ_Y / 8;
 	all->posimg.x = WIN_SZ_X / 2;
 	return (all);

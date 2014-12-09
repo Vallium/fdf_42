@@ -6,12 +6,12 @@
 #    By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/25 15:39:00 by aalliot           #+#    #+#              #
-#    Updated: 2014/12/05 16:00:03 by aalliot          ###   ########.fr        #
+#    Updated: 2014/12/09 10:45:40 by aalliot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= fdf
-SRC		= main.c line.c lib3d.c hook.c moving.c read_map.c rotate.c
+SRC		= main.c line.c lib3d.c hook.c moving.c read_map.c
 OBJ		= $(SRC:.c=.o)
 HDR		= libft/includes/
 MLX		= -L/usr/X11/lib -lmlx -lXext -lX11

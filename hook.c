@@ -33,8 +33,6 @@ int				loop_hook(t_all *all)
 		mlx_string_put(all->env.mlx, all->env.win, 10, 100, 0x98CD00,\
 			"Navigation : Arrows .");
 		mlx_string_put(all->env.mlx, all->env.win, 10, 120, 0x98CD00,\
-			"Rot Clk/Cclk :  8/9 .");
-		mlx_string_put(all->env.mlx, all->env.win, 10, 140, 0x98CD00,\
 			"Reset Image : Enter .");
 		all->re = 0;
 	}
@@ -54,13 +52,16 @@ int				key_hook(int keycode, t_all *all)
 	if (keycode == 65363)
 		move_right(all);
 	if (keycode == 65451)
-		height_up(all);
+	{
+		all->alt += 1;
+		all->re = 1;
+	}
 	if (keycode == 65453)
-		height_down(all);
-	if (keycode == 65464)
-		rot_hor(all);
-	if (keycode == 65465)
-		rot_ahor(all);
+	{
+		if (all->alt)
+			all->alt -= 1;
+		all->re = 1;
+	}
 	if (keycode == 65421)
 		ft_all_init(all);
 	return (0);

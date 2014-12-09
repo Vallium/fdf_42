@@ -83,7 +83,6 @@ typedef struct	s_all
 	int			alt;
 	int			zoom;
 	t_pos		posimg;
-	int			r;
 	char		*name;
 }				t_all;
 
@@ -102,10 +101,6 @@ void			move_up(t_all *all);
 void			move_down(t_all *all);
 void			move_left(t_all *all);
 void			move_right(t_all *all);
-void			rot_hor(t_all *all);
-void			rot_ahor(t_all *all);
-void			height_up(t_all *all);
-void			height_down(t_all *all);
 void			ft_free_map(t_map map);
 void			ft_free_all(t_all *all);
 void			color_alt(t_all *all, int z);
