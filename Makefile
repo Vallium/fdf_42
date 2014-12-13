@@ -21,7 +21,7 @@ CC		= gcc
 .PHONY: test clean cleanlib fclean re 42
 
 %.o: %.c
-	@$(CC) $(FLAGS) -I $(HDR) -I . -o $@ -c $?
+	@$(CC) -O3 $(FLAGS) -I $(HDR) -I . -o $@ -c $?
 
 all: $(NAME)
 
@@ -32,7 +32,7 @@ $(NAME): $(OBJ)
 	@echo "\033[36m   \033[33m╩ ╩╚═╝╩═╝╩═╝╚═╝   ╚╝ ╩ ╩╩═╝╩═╝╩╚═╝╩ ╩\033[0m   ";
 	@echo "\033[01m\033[32m\n\xf0\x9f\x91\x8c  COMPILATION OF FDF \xf0\x9f\x91\x8c\n\033[0m"
 	@echo "\033[31mCompilation time detail:"
-	@time make -C libft/ fclean && make -C libft/ && $(CC) $(FLAGS) $(MLX) -o $(NAME)\
+	@time make -C libft/ fclean && make -C libft/ && $(CC) -O3 $(FLAGS) $(MLX) -o $(NAME)\
 		$(OBJ) libft/libft.a
 	@echo "\033[01m\033[32m\n\xf0\x9f\x91\x8c  PROGRAM COMPILED ! \xf0\x9f\x91\x8c\n\033[0m"
 
