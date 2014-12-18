@@ -38,7 +38,7 @@ void			ft_is_fd(int fd, char *av)
 	if (fd == -1)
 	{
 		ft_putstr_fd("fdf: ", 2);
-		ft_putstr_fd(&av[1], 2);
+		ft_putstr_fd(&av[1] - 1, 2);
 		ft_putendl_fd(": Does not exists or is invalid.", 2);
 		exit (0);
 	}
