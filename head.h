@@ -6,7 +6,7 @@
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/25 17:46:38 by aalliot           #+#    #+#             */
-/*   Updated: 2014/12/04 22:22:49 by aalliot          ###   ########.fr       */
+/*   Updated: 2014/12/09 20:50:49 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 # define HEAD_H
 
-# define WIN_SZ_X 2560
-# define WIN_SZ_Y 1440
+# define WIN_SZ_X 2880
+# define WIN_SZ_Y 1800
 
 # include "libft/includes/get_next_line.h"
 # include <math.h>
